@@ -22,7 +22,7 @@ This is a simple responsive to-do-app
 
 ### Links
 
-[Click to view live site](https://gwynbleidd0014.github.io/tic-tac-toe/)
+[Click to view live site](https://gwynbleidd0014.github.io/todo-app/)
 
 ## Learned
 
