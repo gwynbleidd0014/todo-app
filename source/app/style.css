@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&family=Signika+Negative:wght@700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #202020;
+  --semi-dark: #242424;
+  --light-dark: #282828;
+  --lightest-dark: #363636;
+  --white: #ffffff;
+  --gray: #a9a9a9;
+  --red: #ff7066;
+  --area: "logo ..." "projects projects" "footer footer";
+  --cont: none;
+  --proj: block;
+}
+
+html {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: black;
+  overflow: hidden;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(100px, 400px) 1fr;
+  grid-template-rows: 1fr 6fr 0.3fr;
+  grid-template-areas:
+    "logo logo"
+    "projects content"
+    "footer footer";
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--light-dark);
+  color: var(--white);
+}
+.projects {
+  box-shadow: 0px -2px 4px -1px rgba(0, 0, 0, 1);
+  grid-area: projects;
+  padding: 1em;
+  background: var(--semi-dark);
+  z-index: 2;
+}
+
+.logo-wrapper {
+  background: var(--light-dark);
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  position: relative;
+}
+
+.heading {
+  min-width: max-content;
+}
+
+.heading:hover {
+  cursor: default;
+}
+.logo {
+  height: 70px;
+}
+
+.project {
+  font-size: 1.2rem;
+  padding: 0.4em;
+  border-radius: 0.2em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-number {
+  color: var(--red);
+}
+
+.todo {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  max-width: 90%;
+}
+
+.todo-name-input {
+  appearance: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: var(--dark);
+  color: inherit;
+  width: max-content;
+}
+
+.todo:hover .todo-name-input {
+  background: var(--lightest-dark);
+}
+
+.todo-name {
+  margin-right: auto;
+  min-width: max-content;
+}
+
+.todo > img {
+  height: 30px;
+}
+
+.todos {
+  box-shadow: 0px -2px 4px -1px rgba(0, 0, 0, 1);
+  grid-area: content;
+  background-color: var(--dark);
+  padding: 3em;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  background: #fccb06;
+  border-radius: 50%;
+  display: none;
+  position: absolute;
+  bottom: -50px;
+  z-index: 9999;
+}
+
+.ball:hover {
+  cursor: pointer;
+  background: white;
+}
+
+@media screen and (max-width: 600px) {
+  .projects {
+    display: var(--proj);
+    padding-top: 4em;
+  }
+
+  .todos {
+    display: var(--cont);
+    padding-top: 4em;
+  }
+  .app {
+    grid-template-areas: var(--area);
+  }
+
+  .ball {
+    display: block;
+  }
+}
+
+.project:hover,
+.bg,
+.todo:hover,
+.add-project:hover,
+.add-todo:hover {
+  background: var(--lightest-dark);
+  cursor: pointer;
+}
+
+.expanded-wrapper {
+  display: hidden;
+}
+
+.visible {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 9999;
+  background: rgba(19, 19, 22, 0.171);
+}
+
+.todo-expanded {
+  width: 80%;
+  height: 80%;
+  background-color: aqua;
+}
+
+.add-project,
+.add-todo {
+  font-size: 1.2rem;
+  padding: 0.4em;
+  border-radius: 0.2em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.add-todo {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.add-icon {
+  height: 30px;
+}
+
+.project-add-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.project-add-wrap > button {
+  flex-basis: 48%;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.7em;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.project-add-wrap > button:hover {
+  background: var(--gray);
+  cursor: pointer;
+}
+
+.project-add-inp {
+  flex-basis: 100%;
+  appearance: none;
+  font-size: 1rem;
+  padding: 0.3em;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  margin-bottom: 0.3em;
+  border-radius: 0.2em;
+}
+
+/* UTILITYCLASS START */
+
+.hidden {
+  display: none;
+}
+/* UTILITY CLASS END */
